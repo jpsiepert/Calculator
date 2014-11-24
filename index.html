@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app='calc'>
+<head>
+	<title>Calculator</title>
+</head>
+<body ng-controller='MathCtrl'>
+
+<input type='number' ng-model='math.leftSideArg'/>
+
+<select ng-model='math.operand'>
+	<option value='+'>+</option>
+	<option value='-'>-</option>
+	<option value='*'>*</option>
+</select>
+
+<input type='number' ng-model='math.rightSideArg'/>
+<button ng-click='calculate(math)'>Calculate</button>
+
+<h3>Answer:</h3>
+{{answer}}
+
+<h3>Outputs</h3>
+
+<ol ng-repeat='calc in calculations track by $index'>
+<li>{{calc.left}}  {{calc.op}}  {{calc.right}} = {{calc.answer}}</li>
+</ol>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.js'></script>
+<script src='app.js'></script>
+<script src='ctrl.js'></script>
+<script src='service.js'></script>
+</body>
+</html>
